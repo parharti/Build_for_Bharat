@@ -22,7 +22,7 @@ ENV/
 models/
 results/
 rasa.db
-rasa/cache/
+.rasa/cache/
 rasa/__pycache__/
 .rasa/
 events.db
