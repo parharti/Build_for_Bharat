@@ -1,25 +1,52 @@
-# Ignore environment & secrets
+# 🛡️ Environment & Secrets
 .env
 actions/.env
 */.env
 
-# Python cache & build files
+# 🧠 Python Cache & Build Files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
+build/
+dist/
 
-# Virtual environments
+# 📦 Virtual Environments
 venv/
 env/
 .venv/
 ENV/
 
-#  IDE / Editor folders
+# 💬 Rasa Files (Auto-generated)
+models/
+results/
+rasa.db
+rasa/cache/
+rasa/__pycache__/
+.rasa/
+events.db
+*.lock
+
+# 📂 Logs & Local Cache
+logs/
+*.log
+*.tmp
+*.cache
+.cache/
+.streamlit/
+
+# 🧰 IDE / Editor Folders
 .vscode/
 .idea/
 
-#  Streamlit & logs
-.streamlit/
-logs/
-*.log
+# 🧪 Temporary & Test Data
+test_results/
+notebooks/.ipynb_checkpoints/
+data/*.zip
+data/*.csv~
+data/*.json~
+
+# 🧭 System & OS
+.DS_Store
+Thumbs.db
