@@ -1,0 +1,197 @@
+version: "3.1"
+
+nlu:
+
+# =========================================================
+# 🔍 LOOKUP TABLES
+# =========================================================
+- lookup: state
+  examples: |
+    - Andhra Pradesh
+    - Arunachal Pradesh
+    - Assam
+    - Bihar
+    - Chhattisgarh
+    - Goa
+    - Gujarat
+    - Haryana
+    - Himachal Pradesh
+    - Jharkhand
+    - Karnataka
+    - Kerala
+    - Madhya Pradesh
+    - Maharashtra
+    - Manipur
+    - Meghalaya
+    - Mizoram
+    - Nagaland
+    - Odisha
+    - Punjab
+    - Rajasthan
+    - Sikkim
+    - Tamil Nadu
+    - Telangana
+    - Tripura
+    - Uttar Pradesh
+    - Uttarakhand
+    - West Bengal
+
+- lookup: month
+  examples: |
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+
+- lookup: number
+  examples: |
+    - 2018
+    - 2019
+    - 2020
+    - 2021
+    - 2022
+    - 2023
+    - 2024
+    - 2025
+    - 5
+    - 10
+
+# =========================================================
+# 🗣️ GENERAL INTENTS
+# =========================================================
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - namaste
+    - good morning
+    - good evening
+    - hey samarth
+
+- intent: goodbye
+  examples: |
+    - bye
+    - see you later
+    - goodbye
+    - talk to you soon
+
+- intent: ask_source
+  examples: |
+    - Where do you get your rainfall data from?
+    - Which dataset are you using?
+    - What is your data source?
+    - From where do you fetch rainfall data?
+    - Can you cite the dataset?
+
+- intent: bot_info
+  examples: |
+    - Who are you?
+    - What is Samarth?
+    - What can you tell me about rainfall?
+    - What kind of rainfall insights can you provide?
+    - Tell me about your rainfall analysis abilities
+
+# =========================================================
+# 🌧️ RAINFALL INTELLIGENCE INTENTS
+# =========================================================
+
+# 1️⃣ Compare rainfall between states or districts
+- intent: compare_rainfall
+  examples: |
+    - Compare rainfall in [Maharashtra](state) and [Gujarat](state)
+    - Compare rainfall between [Kerala](state) and [Tamil Nadu](state)
+    - Compare rainfall in [Punjab](state) and [Haryana](state) for [2021](number)
+    - Which state had more rainfall, [Bihar](state) or [Uttar Pradesh](state)?
+    - Compare district-wise rainfall in [Karnataka](state) and [Telangana](state)
+    - How much rainfall difference is there between [Odisha](state) and [West Bengal](state)?
+    - Show rainfall comparison during the monsoon in [Maharashtra](state) and [Gujarat](state)
+    - Compare average rainfall between [Rajasthan](state) and [Madhya Pradesh](state) in [2020](number)
+    - Which region gets heavier rain, [Kerala](state) or [Goa](state)?
+
+# 2️⃣ State/district rainfall summary
+- intent: rainfall_summary
+  examples: |
+    - Show district-wise rainfall in [Karnataka](state) in [2018](number)
+    - What was the rainfall in [Kerala](state) last year?
+    - Tell me the average rainfall in [Gujarat](state) in [June](month)
+    - How much rain did [Rajasthan](state) get in [2020](number)?
+    - District rainfall data for [Tamil Nadu](state)
+    - Give me rainfall report for [Uttar Pradesh](state) in [2021](number)
+    - How much did it rain in [Assam](state) this monsoon?
+    - Show rainfall in [Bihar](state) during [July](month)
+    - Rainfall stats for [Kerala](state) 2024
+
+# 3️⃣ Multi-year or trend analysis
+- intent: rainfall_trend
+  examples: |
+    - Show rainfall trend in [Kerala](state)
+    - Rainfall trend in [Gujarat](state) from [2018](number) to [2024](number)
+    - How has rainfall changed in [Karnataka](state)?
+    - Did rainfall increase in [Maharashtra](state) over time?
+    - Show rainfall variation in [Odisha](state) over the years
+    - Compare rainfall trends for [Punjab](state) and [Haryana](state)
+    - Show year-wise rainfall in [Rajasthan](state)
+    - How has monsoon intensity changed in [Kerala](state) since [2018](number)?
+    - Trend of rainfall in [Madhya Pradesh](state) during last [5](number) years
+
+# 4️⃣ Predict future rainfall or trend
+- intent: predict_rainfall
+  examples: |
+    - Predict rainfall for [Tamil Nadu](state) next year
+    - Forecast rainfall in [Kerala](state) for [2025](number)
+    - What will be the rainfall trend in [Gujarat](state) next year?
+    - Will rainfall increase in [Maharashtra](state) next season?
+    - Estimate rainfall in [Odisha](state) for next monsoon
+    - Predict future rain pattern in [Karnataka](state)
+    - How much rain will [Kerala](state) get next year?
+
+# 5️⃣ Identify highest/lowest rainfall
+- intent: rainfall_extremes
+  examples: |
+    - Which state got the highest rainfall in [2020](number)?
+    - Show top states by rainfall in [2018](number)
+    - Which district in [Kerala](state) had the most rainfall?
+    - Where did it rain the least in [Rajasthan](state)?
+    - Which region received the heaviest rainfall this monsoon?
+    - Top 5 districts by rainfall in [Maharashtra](state)
+    - Lowest rainfall areas in [Tamil Nadu](state)
+
+# 6️⃣ Seasonal rainfall patterns
+- intent: rainfall_seasonal
+  examples: |
+    - Show monsoon rainfall in [Kerala](state)
+    - Compare winter rainfall in [Punjab](state) and [Haryana](state)
+    - Rainfall in [Rajasthan](state) during summer
+    - Show post-monsoon rainfall data for [Karnataka](state)
+    - How much did it rain during monsoon 2021 in [Maharashtra](state)?
+    - Compare monsoon rainfall in [Kerala](state) and [Gujarat](state)
+    - Average rainfall in [Tamil Nadu](state) during the rainy season
+
+# 7️⃣ General questions or patterns
+- intent: rainfall_general
+  examples: |
+    - Is rainfall increasing in India?
+    - What is the rainfall pattern across India?
+    - Which state gets the most rainfall overall?
+    - Has rainfall reduced in recent years?
+    - Is the monsoon weaker this year?
+    - Which parts of India receive heavy rainfall?
+    - How does rainfall vary regionally across India?
+    - Tell me about India’s rainfall distribution
+    - Which region has the lowest rainfall in India?
+
+- intent: complex_agri_query
+  examples: |
+    - Compare the average annual rainfall in [Maharashtra](state) and [Gujarat](state) for the last [3](number) years and show top crops.
+    - Identify the district in [Rajasthan](state) with the highest production of [Rice](crop) and lowest in [Gujarat](state).
+    - Analyze the production trend of [Jowar](crop) in [Maharashtra](state) and correlate it with rainfall.
+    - Advise policy for promoting [Rice](crop) over [Jowar](crop) in [Gujarat](state).

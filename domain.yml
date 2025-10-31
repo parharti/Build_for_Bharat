@@ -1,0 +1,91 @@
+version: "3.1"
+
+intents:
+  - complex_agri_query
+  - greet
+  - goodbye
+  - bot_info
+  - ask_source
+  - compare_rainfall
+  - rainfall_summary
+  - rainfall_trend
+  - predict_rainfall
+  - rainfall_extremes
+  - rainfall_seasonal
+  - rainfall_general
+  - compare_rainfall_crop
+  - crop_production_comparison
+  - crop_rainfall_correlation
+  - policy_advice
+
+entities:
+  - state
+  - district
+  - number
+  - month
+  - season
+
+slots:
+  state:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: state
+
+  district:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: district
+
+  number:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: number
+
+  month:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: month
+
+  season:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hi 👋, I'm Samarth — your rainfall intelligence assistant! 🌧️ You can ask me about rainfall trends, comparisons, or forecasts for any Indian state."
+
+  utter_goodbye:
+    - text: "Goodbye! Stay weather-aware ☀️🌧️"
+
+  utter_bot_info:
+    - text: "I'm Samarth 🌾 — a smart assistant built to analyze rainfall data across India. I fetch live data from data.gov.in to show rainfall summaries, trends, and predictions."
+
+  utter_ask_source:
+    - text: "I use official datasets from the Government of India’s open data portal (https://data.gov.in) — mainly from IMD and Ministry of Earth Sciences."
+
+  utter_fallback:
+    - text: "Sorry 😅, I didn’t quite get that. You can ask me questions like:\n• 'Show rainfall trend in Kerala'\n• 'Compare rainfall in Gujarat and Maharashtra'\n• 'Predict rainfall for next year in Tamil Nadu'"
+
+  utter_processing:
+    - text: "Fetching live rainfall data from data.gov.in... please wait ⏳"
+
+actions:
+  - action_smart_rainfall
+  - action_rainfall_trend
+  - action_smart_agri_insight
+
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

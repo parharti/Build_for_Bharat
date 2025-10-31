@@ -1,0 +1,25 @@
+# Ignore environment & secrets
+.env
+actions/.env
+*/.env
+
+# Python cache & build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+#  IDE / Editor folders
+.vscode/
+.idea/
+
+#  Streamlit & logs
+.streamlit/
+logs/
+*.log
